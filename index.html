@@ -4,7 +4,7 @@
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Quizapp</title>
+  <title>QuizTime</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
@@ -12,44 +12,54 @@
 </head>
 
 <body onload="nextQuestion()">
+
   <!-- Image and text -->
-  <nav class="navbar navbar-light navbar-custom bg-light">
-    <a class="navbar-brand" href="#">
-      <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      HTML Quiz
+  <nav class="navbar navbar-light navbar-custom">
+    <a class="navbar-brand custom-brand" href="#">
+      <img src="img/quiz_640.jpg"class="d-inline-block align-top nav-img" alt="">
+      <h1>QuizTime</h1>
+      
     </a>
   </nav>
-
-  <h1>The awesome HTML Quiz!!</h1>
-  <div id="right-answer" class="alert alert-success d-none" role="alert">
-    Deine Antwort war richtig!!!
-  </div>
-  <div id="wrong-answer" class="alert alert-danger d-none" role="alert">
-    Deine Antwort war leider falsch!
-  </div>
-
-  <div class="card">
-    <div class="progress">
-      <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+  <div class="main">
+    <div id="quiz-finished-container" class="d-none">
+      <h2>You won!!</h2>
+      <img src="img/fireworks.webp">
     </div>
 
-    <div class="card-body" id="question">
-      In diesem Abschnitt wird eine Frage gestellt!!
-    </div>
-  </div>
-  <div class="mt-4">
-    <div class="quiz-answer-row mt-4">
-      <button onclick="answer(1)" id="answer1" class="btn btn-outline-primary">Antwort A</button>
-      <button onclick="answer(2)" id="answer2" class="btn btn-outline-primary">Antwort B</button>
-    </div>
-    <div class="quiz-answer-row mt-4">
-      <button onclick="answer(3)" id="answer3" class="btn btn-outline-primary">Antwort C</button>
-      <button onclick="answer(4)" id="answer4" class="btn btn-outline-primary">Antwort D</button>
-    </div>
 
-    <div class="mt-4">
-      <button onclick="nextQuestion()" id="next-btn" class="btn btn-info d-none">Nächste Frage</button>
+    <div id="quiz-conatiner" class="quiz-container">
+      <div id="right-answer" class="alert alert-success d-none" role="alert">
+        Deine Antwort war richtig!!!
+      </div>
+      <div id="wrong-answer" class="alert alert-danger d-none" role="alert">
+        Deine Antwort war leider falsch!
+      </div>
 
+      <div class="card">
+        <div class="progress">
+          <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+        </div>
+
+        <div class="card-body question-box" id="question">
+          In diesem Abschnitt wird eine Frage gestellt!!
+        </div>
+      </div>
+      <div class="mt-4">
+        <div class="quiz-answer-row mt-4">
+          <button onclick="answer(1)" id="answer1" class="btn btn-outline-primary">Antwort A</button>
+          <button onclick="answer(2)" id="answer2" class="btn btn-outline-primary">Antwort B</button>
+        </div>
+        <div class="quiz-answer-row mt-4">
+          <button onclick="answer(3)" id="answer3" class="btn btn-outline-primary">Antwort C</button>
+          <button onclick="answer(4)" id="answer4" class="btn btn-outline-primary">Antwort D</button>
+        </div>
+
+        <div class="mt-4">
+          <button onclick="nextQuestion()" id="next-btn" class="btn btn-info d-none">Nächste Frage</button>
+
+        </div>
+      </div>
     </div>
 
 

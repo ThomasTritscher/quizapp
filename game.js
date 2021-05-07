@@ -72,14 +72,26 @@ function hideElements() {
 
 function nextQuestion() {
   hideElements();
-  question_number = question_number + 1;// Variable wird immer um 1 erhöht onload, nextQuestion usw..
-  /*console.log('Number of questions:' , Math.round ((question_number / allQuestions.length) * 100));//Prozentbrechnung + Aufrundung.
-  progress = question_number * 10; // 10% Porzent bei 10 Fragen*/
-  progress = Math.round((question_number / allQuestions.length) * 100); //Prozentbrechnung + Aufrundung
-  document.getElementById('progress-bar').innerHTML = progress + '%';// Änderung der Baranzeige um je 10% pro nextQuestion
-  document.getElementById('progress-bar').style.width = progress + '%'; //Breite des Styles/Bg wird um je 10% erhöht
 
-  loadQuestion();
+  if (question_number == allQuestions.length) {
+    finishQuiz();
+  } else {
+
+    question_number = question_number + 1;// Variable wird immer um 1 erhöht onload, nextQuestion usw..
+    /*console.log('Number of questions:' , Math.round ((question_number / allQuestions.length) * 100));//Prozentbrechnung + Aufrundung.
+    progress = question_number * 10; // 10% Porzent bei 10 Fragen*/
+    progress = Math.round((question_number / allQuestions.length) * 100); //Prozentbrechnung + Aufrundung
+    document.getElementById('progress-bar').innerHTML = progress + '%';// Änderung der Baranzeige um je 10% pro nextQuestion
+    document.getElementById('progress-bar').style.width = progress + '%'; //Breite des Styles/Bg wird um je 10% erhöht
+
+    loadQuestion();
+  }
+}
+
+function finishQuiz() {
+  document.getElementById('quiz-conatiner').classList.add('d-none'); //alles unter Headline wird ausgeblendet
+  document.getElementById('quiz-finished-container').classList.remove('d-none');// Text aus Div wird eingeblendet
+  
 }
 
 function loadQuestion() {

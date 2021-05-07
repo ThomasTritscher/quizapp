@@ -16,6 +16,10 @@ h1 {
   font-family: 'Permanent Marker', cursive;
   margin-left: 8px;
 }
+h2 {
+  color      : white;
+  font-family: 'Permanent Marker', cursive;
+}
 
 .navbar-custom {
   background-color: #24D9D2;
@@ -31,6 +35,7 @@ h1 {
 .custom-brand {
   display        : flex;
   align-items    : center;
+  margin-left: 16px;
 
 }
 
@@ -65,14 +70,14 @@ h1 {
   background-color: #E48AF2;
 }
 
-.footer-custom {
+/* .footer-custom {
   position: absolute;
   left    : 0;
   right   : 0;
   bottom  : 0;
   color   : white;
 
-}
+} */
 
 .question-box {
   font-size: clamp(1rem, 2.5vw, 2rem);
@@ -82,6 +87,7 @@ h1 {
 .quiz-answer-row {
   display        : flex;
   justify-content: space-around;
+  margin-left: -5px;
 }
 
 .quiz-answer-row button {
@@ -104,4 +110,8 @@ h1 {
 .answer-img {
   width: 100px;
   height: 100px;
+}
+.finished-img {
+  width: 80%;
+    height: 30vh;
 }

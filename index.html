@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <script src='game.js'></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Russo+One&display=swap" rel="stylesheet">
 </head>
 
 <body onload="nextQuestion()">
@@ -16,24 +20,26 @@
   <!-- Image and text -->
   <nav class="navbar navbar-light navbar-custom">
     <a class="navbar-brand custom-brand" href="#">
-      <img src="img/quiz_640.jpg"class="d-inline-block align-top nav-img" alt="">
+      <img src="img/quiz_640.jpg" class="d-inline-block align-top nav-img" alt="">
       <h1>QuizTime</h1>
-      
+
     </a>
   </nav>
   <div class="main">
     <div id="quiz-finished-container" class="d-none">
       <h2>You won!!</h2>
-      <img src="img/fireworks.webp">
+      <img src="img/urkel.png">
     </div>
 
 
     <div id="quiz-conatiner" class="quiz-container">
       <div id="right-answer" class="alert alert-success d-none" role="alert">
         Deine Antwort war richtig!!!
+        <img class="answer-img" src="img/hasselhoff1.png" alt="">
       </div>
       <div id="wrong-answer" class="alert alert-danger d-none" role="alert">
         Deine Antwort war leider falsch!
+        <img class="answer-img" src="img/alpacino.png" alt="">
       </div>
 
       <div class="card">
@@ -55,22 +61,21 @@
           <button onclick="answer(4)" id="answer4" class="btn btn-outline-primary">Antwort D</button>
         </div>
 
-        <div class="mt-4">
+        <div class="mt-3">
           <button onclick="nextQuestion()" id="next-btn" class="btn btn-info d-none">Nächste Frage</button>
-
         </div>
       </div>
     </div>
 
 
-    <footer class="bg-light text-center text-lg-start footer-custom">
-      <!-- Copyright -->
+    <!-- <footer class="bg-light text-center text-lg-start footer-custom">
+    
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
         © 2020 Copyright:
         <a class="text-dark" href="https://developerakademie.com/" target="_blank">Developer Akademie</a>
       </div>
-      <!-- Copyright -->
-    </footer>
+      
+    </footer> -->
 
 
 </body>

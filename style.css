@@ -6,7 +6,7 @@
   padding-right: 64px;
   padding-top  : 96px;
 
-  
+
 
 }
 
@@ -16,9 +16,11 @@ h1 {
   font-family: 'Permanent Marker', cursive;
   margin-left: 8px;
 }
+
 h2 {
   color      : white;
   font-family: 'Permanent Marker', cursive;
+  font-size  : clamp(2.5rem, 3vw, 4rem);
 }
 
 .navbar-custom {
@@ -28,23 +30,46 @@ h2 {
   left            : 0;
   right           : 0;
   top             : 0;
-  height          : 80px;
+  height          : 140px;
   z-index         : 1;
+
+
+}
+
+@media only screen and (max-width: 769px) {
+
+  
 }
 
 .custom-brand {
-  display        : flex;
-  align-items    : center;
+  display    : flex;
+  align-items: center;
   margin-left: 16px;
 
 }
 
 .nav-img {
   width        : 12%;
-  height       : 8vh;
+  height       : 7vh;
   object-fit   : cover;
   border-radius: 16px;
   padding      : 8px;
+
+}
+
+@media only screen and (max-width: 769px) {
+
+  .nav-img {
+    width : 20%;
+    height: 8vh;
+  }
+}
+@media only screen and (max-width: 500px) {
+
+  .nav-img {
+    width : 38%;
+    height: 5vh;
+  }
 }
 
 .main {
@@ -63,7 +88,14 @@ h2 {
 
 .btn {
   background-color: #24D9D2;
-  font-family: 'Russo One', sans-serif;
+  font-family     : 'Russo One', sans-serif;
+  font-size: 2rem;
+}
+@media only screen and (max-width: 500px) {
+
+  .btn {
+    font-size: 1rem;
+  }
 }
 
 .btn:hover {
@@ -80,38 +112,52 @@ h2 {
 } */
 
 .question-box {
-  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-size  : clamp(1rem, 2.5vw, 2rem);
   font-family: 'Russo One', sans-serif;
 }
 
 .quiz-answer-row {
   display        : flex;
   justify-content: space-around;
-  margin-left: -5px;
+  margin-left    : -5px;
 }
 
 .quiz-answer-row button {
-  width    : 48%;
-  height   : 80px;
-  color    : white;
-  font-size: clamp(1rem, 2.5vw, 2rem);
+  width      : 48%;
+  height     : 80px;
+  color      : white;
+  font-size  : clamp(1rem, 2.5vw, 2rem);
   font-family: 'Russo One', sans-serif;
 }
-#right-answer{
+
+#right-answer {
   font-family: 'Russo One', sans-serif;
-  font-size: clamp(1rem, 2.5vw, 2rem);
-  padding: 0.5rem 0.5rem;
+  font-size  : clamp(1rem, 2.5vw, 2rem);
+  padding    : 0.5rem 0.5rem;
 }
-#wrong-answer{
+
+#wrong-answer {
   font-family: 'Russo One', sans-serif;
-  font-size: clamp(1rem, 2.5vw, 2rem);
-  padding: 0.5rem 0.5rem;
+  font-size  : clamp(1rem, 2.5vw, 2rem);
+  padding    : 0.5rem 0.5rem;
 }
+
 .answer-img {
-  width: 100px;
+  width : 100px;
   height: 100px;
 }
+
 .finished-img {
-  width: 80%;
-    height: 30vh;
+  width : 80%;
+  height: 30vh;
+}
+
+
+
+
+.quiz-finished-container {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  flex-direction : column-reverse;
 }

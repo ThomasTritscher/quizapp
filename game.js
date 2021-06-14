@@ -40,7 +40,7 @@ let allQuestions = [
     'right_answer': 1
   },
   {
-    'question': 'Wie heißt das Monster von den Goonies?',
+    'question': 'Wie heisst das Monster von den Goonies?',
     'answer_1': 'Sloth',
     'answer_2': 'Data',
     'answer_3': 'Clark Devereuax',
@@ -48,12 +48,36 @@ let allQuestions = [
     'right_answer': 1
   },
   {
-    'question': 'Wievviel Bit hat ein Commodore 64?',
+    'question': 'Wieviel Bit hat ein Commodore 64?',
     'answer_1': '6',
     'answer_2': '4',
     'answer_3': '64',
     'answer_4': '8',
     'right_answer': 4
+  },
+  {
+    'question': 'Wer hat die Regie bei Scarface geführt?',
+    'answer_1': 'Fidel Castro',
+    'answer_2': 'Manny Ribera',
+    'answer_3': 'Louis Stroller',
+    'answer_4': 'Brian De Palma',
+    'right_answer': 4
+  },
+  {
+    'question': 'Sarah Connor in Terminator wurde von wem gespielt?',
+    'answer_1': 'Drew Barrymore',
+    'answer_2': 'Linda Hamilton',
+    'answer_3': 'Jodie Foster',
+    'answer_4': 'Michelle Pfeiffer',
+    'right_answer': 2
+  },
+  {
+    'question': 'Der Vorname von Dr. Huxtable lautet',
+    'answer_1': 'Aloysius',
+    'answer_2': 'Russell',
+    'answer_3': 'Heathcliff',
+    'answer_4': 'Theodore',
+    'right_answer': 3
   }
 ];
 
@@ -65,9 +89,8 @@ let progress = 0;
 
 
 function hideElements() {
-  document.getElementById('right-answer').classList.add('d-none');//Alert "richtige Antwort" wird bei nächster Frage ausgeblendet
-  document.getElementById('next-btn').classList.add('d-none');//"nächste Frage" btn wird bei nächstem Schritt ausgeblendet
-
+  document.getElementById('right-answer').classList.add('d-none');
+  document.getElementById('next-btn').classList.add('d-none');
 }
 
 function nextQuestion() {
@@ -77,33 +100,29 @@ function nextQuestion() {
     finishQuiz();
   } else {
 
-    question_number = question_number + 1;// Variable wird immer um 1 erhöht onload, nextQuestion usw..
-    /*console.log('Number of questions:' , Math.round ((question_number / allQuestions.length) * 100));//Prozentbrechnung + Aufrundung.
-    progress = question_number * 10; // 10% Porzent bei 10 Fragen*/
-    progress = Math.round((question_number / allQuestions.length) * 100); //Prozentbrechnung + Aufrundung
-    document.getElementById('progress-bar').innerHTML = progress + '%';// Änderung der Baranzeige um je 10% pro nextQuestion
-    document.getElementById('progress-bar').style.width = progress + '%'; //Breite des Styles/Bg wird um je 10% erhöht
+    question_number = question_number + 1; //plus 1 onload
+    document.getElementById('progress-bar').innerHTML = progress + '%';
+    document.getElementById('progress-bar').style.width = progress + '%';
 
     loadQuestion();
   }
 }
 
 function finishQuiz() {
-  document.getElementById('quiz-conatiner').classList.add('d-none'); //alles unter Headline wird ausgeblendet
-  document.getElementById('quiz-finished-container').classList.remove('d-none');// Text aus Div wird eingeblendet
-  
+  document.getElementById('quiz-conatiner').classList.add('d-none');
+  document.getElementById('quiz-finished-container').classList.remove('d-none');
+
 }
 
 function loadQuestion() {
   document.getElementById('question').innerHTML = allQuestions[question_number - 1]['question'];
-  // Fülle Frage 1
   document.getElementById('answer1').innerHTML = allQuestions[question_number - 1]['answer_1'];
   document.getElementById('answer2').innerHTML = allQuestions[question_number - 1]['answer_2'];
   document.getElementById('answer3').innerHTML = allQuestions[question_number - 1]['answer_3'];
   document.getElementById('answer4').innerHTML = allQuestions[question_number - 1]['answer_4'];
   right_answer = allQuestions[question_number - 1]['right_answer'];
-  document.getElementById('progress-bar').innerHTML = progress + '%';// Änderung der Baranzeige um je 10% pro nextQuestion
-    document.getElementById('progress-bar').style.width = progress + '%'; //Breite des Styles/Bg wird um je 10% erhöht
+  document.getElementById('progress-bar').innerHTML = progress + '%';
+  document.getElementById('progress-bar').style.width = progress + '%';
 
 }
 
@@ -114,6 +133,7 @@ function answer(a) {
     document.getElementById('right-answer').classList.remove('d-none');
     // Show next button
     document.getElementById('next-btn').classList.remove('d-none');
+    progress = Math.round((question_number / allQuestions.length) * 100);
   } else { //Wrong answer
     document.getElementById('right-answer').classList.add('d-none');
     document.getElementById('wrong-answer').classList.remove('d-none');

@@ -84,8 +84,11 @@ let allQuestions = [
 let right_answer;
 let question_number = 0;
 let progress = 0;
+let right_answer_images = ['img/jackson.png', 'img/jackson.png','img/jackson.png','img/jackson.png','img/jackson.png','img/jackson.png','img/jackson.png','img/jackson.png','img/jackson.png',]
 
-
+function startQuiz(){
+  document.getElementById('start-screen').classList.add('d-none');
+}
 
 
 function hideElements() {

@@ -23,8 +23,43 @@ h2 {
   font-size  : clamp(2.5rem, 3vw, 4rem);
 }
 
+
+.start-screen {
+  position       : fixed;
+  top            : 0;
+  left           : 0;
+  right          : 0;
+  width          : 100vw;
+  height         : 100vh;
+  background     : black;
+  z-index        : 999;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+}
+
+.start-screen-box {
+  width          : 100%;
+  height         : auto;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  flex-direction : column;
+}
+
+.start-screen-img {
+  width        : 25%;
+  height       : auto;
+  border-radius: 8px;
+}
+
+.h1-start {
+  font-size: clamp(1rem, 5rem, 7rem);
+  margin   : 16px 0px;
+}
+
 .navbar-custom {
-  background-color: #24D9D2;
+  background-color: rgb(255, 255, 255, 0.1);
   position        : fixed;
   justify-content : center;
   left            : 0;
@@ -32,8 +67,10 @@ h2 {
   top             : 0;
   height          : 140px;
   z-index         : 1;
+}
 
-
+.start-btn {
+  margin: 16px 0px;
 }
 
 
@@ -135,11 +172,6 @@ h2 {
 }
 
 
-
-
-
-
-
 @media only screen and (max-width: 769px) {
 
   .quiz-answer-row {
@@ -154,7 +186,8 @@ h2 {
   }
 
   .navbar-custom {
-    height: 100px;
+    background-color: rgb(255, 255, 255, 0.1);
+    height          : 60px;
   }
 
   .nav-img {
@@ -167,7 +200,7 @@ h2 {
 @media only screen and (max-width: 500px) {
   .navbar-custom {
     background-color: rgb(255, 255, 255, 0.1);
-    height: 50px;
+    height          : 50px;
   }
 
   .quiz-container {
@@ -178,12 +211,13 @@ h2 {
     width : 24%;
     height: 6vh;
   }
+
   .btn {
     font-size: 1rem;
   }
+
   .quiz-answer-row button {
     height: 40px;
   }
-  
-}
 
+}

@@ -1,3 +1,6 @@
+
+//JSON for the question and images
+
 let allQuestions = [
   {
     'question': 'Wie lautet ALF`s vollständiger Name?',
@@ -5,7 +8,8 @@ let allQuestions = [
     'answer_2': 'Wayne Schlegel',
     'answer_3': 'Willie Tanner',
     'answer_4': 'Gordon Shumway',
-    'right_answer': 4
+    'right_answer': 4,
+    'answer_image': 'img/alf.png'
   },
   {
     'question': 'Wie lautet der Name von Michael Knight `s Boss',
@@ -13,7 +17,8 @@ let allQuestions = [
     'answer_2': 'Dr. Bonnie Barstow',
     'answer_3': 'Devon Miles',
     'answer_4': 'David Hasselhoff',
-    'right_answer': 3
+    'right_answer': 3,
+    'answer_image': 'img/hasselhoff1.png'
   },
   {
     'question': 'Wer hat den Titelsong zu Miami Vice geschrieben?',
@@ -21,7 +26,8 @@ let allQuestions = [
     'answer_2': 'Jan Hammer',
     'answer_3': 'Ricardo Tubs',
     'answer_4': 'Martin Costillo',
-    'right_answer': 2
+    'right_answer': 2,
+    'answer_image': 'img/miami.png'
   },
   {
     'question': 'In welchem Jahr erschien der Film TRON?',
@@ -29,7 +35,8 @@ let allQuestions = [
     'answer_2': '1984',
     'answer_3': '1986',
     'answer_4': '1988',
-    'right_answer': 1
+    'right_answer': 1,
+    'answer_image': 'img/jeff.png'
   },
   {
     'question': 'Wann erschien Michael Jackson`s Album Thriller?',
@@ -37,7 +44,8 @@ let allQuestions = [
     'answer_2': '1987',
     'answer_3': '1989',
     'answer_4': '1985',
-    'right_answer': 1
+    'right_answer': 1,
+    'answer_image': 'img/jackson.png'
   },
   {
     'question': 'Wie heisst das Monster von den Goonies?',
@@ -45,7 +53,8 @@ let allQuestions = [
     'answer_2': 'Data',
     'answer_3': 'Clark Devereuax',
     'answer_4': 'Chunk',
-    'right_answer': 1
+    'right_answer': 1,
+    'answer_image': 'img/sloth.png'
   },
   {
     'question': 'Wieviel Bit hat ein Commodore 64?',
@@ -53,7 +62,8 @@ let allQuestions = [
     'answer_2': '4',
     'answer_3': '64',
     'answer_4': '8',
-    'right_answer': 4
+    'right_answer': 4,
+    'answer_image': 'img/c64.png'
   },
   {
     'question': 'Wer hat die Regie bei Scarface geführt?',
@@ -61,7 +71,8 @@ let allQuestions = [
     'answer_2': 'Manny Ribera',
     'answer_3': 'Louis Stroller',
     'answer_4': 'Brian De Palma',
-    'right_answer': 4
+    'right_answer': 4,
+    'answer_image': 'img/scarface_2.png'
   },
   {
     'question': 'Sarah Connor in Terminator wurde von wem gespielt?',
@@ -69,7 +80,8 @@ let allQuestions = [
     'answer_2': 'Linda Hamilton',
     'answer_3': 'Jodie Foster',
     'answer_4': 'Michelle Pfeiffer',
-    'right_answer': 2
+    'right_answer': 2,
+    'answer_image': 'img/linda.png'
   },
   {
     'question': 'Der Vorname von Dr. Huxtable lautet',
@@ -77,16 +89,20 @@ let allQuestions = [
     'answer_2': 'Russell',
     'answer_3': 'Heathcliff',
     'answer_4': 'Theodore',
-    'right_answer': 3
+    'right_answer': 3,
+    'answer_image': 'img/cliff.png'
   }
 ];
+
+// General variables
 
 let right_answer;
 let question_number = 0;
 let progress = 0;
-let right_answer_images = ['img/jackson.png', 'img/jackson.png','img/jackson.png','img/jackson.png','img/jackson.png','img/jackson.png','img/jackson.png','img/jackson.png','img/jackson.png',]
+let right_answer_image;
 
-function startQuiz(){
+
+function startQuiz() {
   document.getElementById('start-screen').classList.add('d-none');
 }
 
@@ -95,6 +111,10 @@ function hideElements() {
   document.getElementById('right-answer').classList.add('d-none');
   document.getElementById('next-btn').classList.add('d-none');
 }
+
+/**
+ * Initializes the necesary drawings for the game
+ *  */
 
 function nextQuestion() {
   hideElements();
@@ -117,6 +137,10 @@ function finishQuiz() {
 
 }
 
+/**
+ * Filling question part
+ *  */
+
 function loadQuestion() {
   document.getElementById('question').innerHTML = allQuestions[question_number - 1]['question'];
   document.getElementById('answer1').innerHTML = allQuestions[question_number - 1]['answer_1'];
@@ -124,16 +148,25 @@ function loadQuestion() {
   document.getElementById('answer3').innerHTML = allQuestions[question_number - 1]['answer_3'];
   document.getElementById('answer4').innerHTML = allQuestions[question_number - 1]['answer_4'];
   right_answer = allQuestions[question_number - 1]['right_answer'];
+  right_answer_image = allQuestions[question_number - 1]['answer_image'];
+  console.log(right_answer_image)
   document.getElementById('progress-bar').innerHTML = progress + '%';
   document.getElementById('progress-bar').style.width = progress + '%';
 
 }
 
+/**
+ * Function for right and wrong answers
+ *  */
 
 function answer(a) {
   if (a == right_answer) { // Right answer
     document.getElementById('wrong-answer').classList.add('d-none');
     document.getElementById('right-answer').classList.remove('d-none');
+    document.getElementById('right-answer').innerHTML = `Deine Antwort war richtig!!!
+    <img class="answer-img" src="${right_answer_image}" >`;
+    
+    
     // Show next button
     document.getElementById('next-btn').classList.remove('d-none');
     progress = Math.round((question_number / allQuestions.length) * 100);

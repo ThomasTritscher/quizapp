@@ -91,7 +91,7 @@ let allQuestions = [
     'answer_4': 'Theodore',
     'right_answer': 3,
     'answer_image': 'img/cliff.png',
-    'wrong_answer_img': 'img/'  }
+    'wrong_answer_img': 'img/bill-wrong.png'  }
 ];
 
 // General variables
@@ -101,6 +101,8 @@ let question_number = 0;
 let progress = 0;
 let right_answer_image;
 let wrong_answer_image;
+let life_counter = 3;
+
 
 
 function startQuiz() {
@@ -178,6 +180,9 @@ function answer(a) {
     document.getElementById('wrong-answer').classList.remove('d-none');
     document.getElementById('wrong-answer').innerHTML = `Deine Antwort war falsch!!!
     <img class="answer-img" src="${wrong_answer_image}" >`;
+    life_counter = life_counter -1;
+    console.log(life_counter)
+
   }
 }
 

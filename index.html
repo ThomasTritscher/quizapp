@@ -29,20 +29,27 @@
       <h2>The awesome 80`s Quiz!</h2>
       <button onclick="startQuiz()" type="button" class="btn btn-outline-primary start-btn">Start</button>
     </div>
-
   </div>
-
-
   <nav class="navbar navbar-light navbar-custom">
     <a class="navbar-brand custom-brand" href="#">
       <img src="img/quiz_640.jpg" class="d-inline-block align-top nav-img" alt="">
       <h1>QuizTime</h1>
+      <div class="heart-box">
+        <img id="heart1" class="digital-heart" src="img/digital-heart.png">
+        <img id="heart2" class="digital-heart" src="img/digital-heart.png">
+        <img id="heart3" class="digital-heart" src="img/digital-heart.png">
+      </div>
     </a>
   </nav>
   <div class="main">
     <div id="quiz-finished-container" class="d-none">
       <h2>You won!!</h2>
       <img class="finished-img" src="img/urkel.png">
+    </div>
+    <div id="quiz-lost-container" class="d-none">
+      <h2>You lost!!</h2>
+      <img class="finished-img" src="img/prince.png">
+      <button onclick="restartQuiz()" type="button" class="btn btn-outline-primary start-btn">Restart?</button>
     </div>
 
     <div id="quiz-conatiner" class="quiz-container">
